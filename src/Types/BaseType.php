@@ -218,7 +218,7 @@ class BaseType implements JmesPathableObjectInterface
 
         foreach (self::$properties[get_class($this)] as $name => $info) {
             if (!array_key_exists($name, $this->values)) {
-                break;
+                continue;
             }
 
             $value = $this->values[$name];
@@ -401,11 +401,11 @@ class BaseType implements JmesPathableObjectInterface
 
         foreach (self::$properties[get_class($this)] as $name => $info) {
             if (!$info['attribute']) {
-                break;
+                continue;
             }
 
             if (!array_key_exists($name, $this->values)) {
-                break;
+                continue;
             }
 
             $attributes[] = self::attributeToXml($info['attributeName'], $this->values[$name]);
@@ -425,11 +425,11 @@ class BaseType implements JmesPathableObjectInterface
 
         foreach (self::$properties[get_class($this)] as $name => $info) {
             if ($info['attribute']) {
-                break;
+                continue;
             }
 
             if (!array_key_exists($name, $this->values)) {
-                break;
+                continue;
             }
 
             $value = $this->values[$name];
