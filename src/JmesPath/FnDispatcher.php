@@ -331,7 +331,7 @@ class FnDispatcher
         $this->validateArity($from, count($args), count($types));
         foreach ($args as $index => $value) {
             if (!isset($types[$index]) || !$types[$index]) {
-                continue;
+                break;
             }
             $this->validateType("{$from}:{$index}", $value, $types[$index]);
         }
