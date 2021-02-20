@@ -226,7 +226,7 @@ class Lexer
                     'value' => $current
                 ];
                 next($chars);
-                break;
+                continue;
             }
 
             $state = self::$transitionTable[$current];
