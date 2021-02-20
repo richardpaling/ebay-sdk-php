@@ -178,7 +178,7 @@ class XmlParser
             foreach ($attributes as $attribute => $value) {
                 // These attribute will simply not exist in a PHP object.
                 if ('xmlns' === $attribute) {
-                    continue;
+                    break;
                 }
                 $attributeMeta = $meta->phpObject->elementMeta($attribute);
                 // Attribute in the XML may not exist as a property name in the class.
@@ -212,7 +212,7 @@ class XmlParser
                 case 'double':
                 case 'boolean':
                 case 'DateTime':
-                    continue;
+                    break;
                 default:
                     return $meta->phpType !== '' ? new $phpType() : null;
             }
@@ -258,7 +258,7 @@ class XmlParser
                 case 'double':
                 case 'boolean':
                 case 'DateTime':
-                    continue;
+                    break;
                 default:
                     return false;
             }
