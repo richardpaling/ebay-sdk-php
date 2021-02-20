@@ -48,7 +48,7 @@ class UriResolver
                         ? $def['default']($paramValues)
                         : $def['default'];
                 } elseif (empty($def['required'])) {
-                    continue;
+                    break;
                 } else {
                     $this->throwRequired($paramDefs, $paramValues);
                 }
@@ -101,7 +101,7 @@ class UriResolver
                 || isset($def['default'])
                 || array_key_exists($key, $paramValues)
             ) {
-                continue;
+                break;
             }
             $missing[] = $key;
         }
