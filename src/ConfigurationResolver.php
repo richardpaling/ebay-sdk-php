@@ -47,7 +47,7 @@ class ConfigurationResolver
                         ? $def['default']($configuration)
                         : $def['default'];
                 } elseif (empty($def['required'])) {
-                    break;
+                    continue;
                 } else {
                     $this->throwRequired($configuration);
                 }
@@ -135,7 +135,7 @@ class ConfigurationResolver
                 || isset($def['default'])
                 || array_key_exists($key, $configuration)
             ) {
-                break;
+                continue;
             }
             $missing[] = $key;
         }
